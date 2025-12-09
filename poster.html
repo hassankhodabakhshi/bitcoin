@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پوستر تبلیغاتی - سیستم تحلیل بیت‌کوین</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .story-poster {
+            width: 1080px;
+            height: 1920px;
+            background: linear-gradient(135deg, 
+                #0f0c29 0%, 
+                #302b63 30%, 
+                #24243e 70%,
+                #0f0c29 100%);
+            border-radius: 50px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            border: 15px solid #0a0a1a;
+        }
+        
+        /* گرادیان پشت زمینه */
+        .gradient-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                circle at 30% 20%,
+                rgba(59, 130, 246, 0.3) 0%,
+                transparent 50%
+            ),
+            radial-gradient(
+                circle at 70% 80%,
+                rgba(139, 92, 246, 0.3) 0%,
+                transparent 50%
+            ),
+            radial-gradient(
+                circle at 50% 50%,
+                rgba(239, 68, 68, 0.2) 0%,
+                transparent 60%
+            );
+        }
+        
+        /* هدر با لوگو */
+        .header {
+            position: relative;
+            padding: 80px 60px 40px;
+            text-align: center;
+            background: linear-gradient(
+                180deg,
+                rgba(15, 23, 42, 0.9) 0%,
+                transparent 100%
+            );
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .logo-circle {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #8B5CF6, #3B82F6, #10B981);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            color: white;
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4);
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            animation: pulse 4s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 30px 60px rgba(139, 92, 246, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4); }
+        }
+        
+        .title-section {
+            text-align: center;
+        }
+        
+        .main-title {
+            font-size: 100px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #F59E0B, #FBBF24, #FCD34D);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+            line-height: 1.1;
+        }
+        
+        .subtitle {
+            font-size: 48px;
+            color: #60A5FA;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-size: 36px;
+            color: #94A3B8;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+        
+        /* بخش ویژگی‌ها */
+        .features-section {
+            padding: 60px 80px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 30px;
+            padding: 40px;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #3B82F6;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #8B5CF6, #3B82F6);
+        }
+        
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 25px;
+            display: inline-block;
+            background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .feature-title {
+            font-size: 42px;
+            color: #F59E0B;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .feature-desc {
+            font-size: 28px;
+            color: #E2E8F0;
+            line-height: 1.4;
+        }
+        
+        .highlight {
+            color: #10B981;
+            font-weight: 700;
+        }
+        
+        /* بخش جزئیات */
+        .details-section {
+            padding: 60px 80px;
+            background: rgba(15, 23, 42, 0.5);
+            margin: 0 60px;
+            border-radius: 40px;
+            border: 2px solid rgba(139, 92, 246, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .details-title {
+            font-size: 56px;
+            color: #60A5FA;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #60A5FA, #3B82F6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 25px;
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 20px;
+            border: 1px solid rgba(100, 116, 139, 0.2);
+        }
+        
+        .detail-icon {
+            font-size: 40px;
+            color: #F59E0B;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .detail-text {
+            font-size: 28px;
+            color: #E2E8F0;
+            font-weight: 600;
+        }
+        
+        /* بخش انتهایی */
+        .footer-section {
+            padding: 60px 80px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, #10B981, #0EA5E9);
+            padding: 50px;
+            border-radius: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 20%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .cta-title {
+            font-size: 64px;
+            color: white;
+            font-weight: 900;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-text {
+            font-size: 36px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            line-height: 1.4;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .link-box {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px 50px;
+            border-radius: 30px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .link-text {
+            font-size: 32px;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .creator-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0 20px;
+            border-top: 2px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .creator {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        .creator-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #F59E0B, #EF4444);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .creator-info {
+            text-align: right;
+        }
+        
+        .creator-name {
+            font-size: 36px;
+            color: #F59E0B;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .creator-title {
+            font-size: 28px;
+            color: #94A3B8;
+        }
+        
+        .ai-badge {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: rgba(139, 92, 246, 0.2);
+            padding: 25px 40px;
+            border-radius: 30px;
+            border: 2px solid rgba(139, 92, 246, 0.4);
+        }
+        
+        .ai-icon {
+            font-size: 50px;
+            color: #8B5CF6;
+        }
+        
+        .ai-text {
+            text-align: right;
+        }
+        
+        .ai-name {
+            font-size: 36px;
+            color: #8B5CF6;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+        
+        .ai-title {
+            font-size: 28px;
+            color: #A78BFA;
+        }
+        
+        /* ذرات شناور */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-1000px) rotate(720deg); }
+        }
+        
+        /* انیمیشن‌های متن */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-text {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1s; }
+    </style>
+</head>
+<body>
+    <div class="story-poster">
+        <!-- گرادیان پشت زمینه -->
+        <div class="gradient-bg"></div>
+        
+        <!-- ذرات شناور -->
+        <div class="particles" id="particles"></div>
+        
+        <!-- هدر -->
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo-circle animate-text">
+                    🤖
+                </div>
+            </div>
+            
+            <div class="title-section">
+                <h1 class="main-title animate-text">سیستم تحلیل بیت‌کوین</h1>
+                <div class="subtitle animate-text delay-1">هوش مصنوعی + معاملات فیوچرز</div>
+                <div class="tagline animate-text delay-2">قدرتمندترین ابزار تحلیل بازار ارزهای دیجیتال</div>
+            </div>
+        </div>
+        
+        <!-- ویژگی‌های اصلی -->
+        <div class="features-section">
+            <div class="feature-card animate-text delay-1">
+                <div class="feature-icon">🤖</div>
+                <h3 class="feature-title">تحلیل هوش مصنوعی</h3>
+                <p class="feature-desc">
+                    تحلیل <span class="highlight">عمیق بازار</span> توسط هوش مصنوعی پیشرفته
+                    <br>• تحلیل تکنیکال
+                    <br>• تحلیل بنیادی
+                    <br>• پیش‌بینی قیمت
+                </p>
+            </div>
+            
+            <div class="feature-card animate-text delay-2">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">قیمت لحظه‌ای</h3>
+                <p class="feature-desc">
+                    <span class="highlight">هر ۳۰ ثانیه</span> به‌روزرسانی
+                    <br>• نمودار زنده
+                    <br>• آمار لحظه‌ای
+                    <br>• تغییرات لحظه‌ای
+                </p>
+            </div>
+            
+            <div class="feature-card animate-text delay-3">
+                <div class="feature-icon">🧮</div>
+                <h3 class="feature-title">ماشین حساب فیوچرز</h3>
+                <p class="feature-desc">
+                    اهرم تا <span class="highlight">۱۰۰x</span>
+                    <br>• محاسبه لیکوییدی
+                    <br>• حد سود و ضرر
+                    <br>• مدیریت ریسک
+                </p>
+            </div>
+            
+            <div class="feature-card animate-text delay-4">
+                <div class="feature-icon">📰</div>
+                <h3 class="feature-title">اخبار لحظه‌ای</h3>
+                <p class="feature-desc">
+                    <span class="highlight">آخرین اخبار</span> بازار
+                    <br>• تحلیل احساسات
+                    <br>• تأثیر اخبار بر قیمت
+                    <br>• رویدادهای مهم
+                </p>
+            </div>
+        </div>
+        
+        <!-- جزئیات فنی -->
+        <div class="details-section animate-text delay-3">
+            <h2 class="details-title">🎯 خدمات کامل ارائه شده</h2>
+            
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-icon">💰</div>
+                    <div class="detail-text">قیمت زنده بیت‌کوین</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">📊</div>
+                    <div class="detail-text">نمودار تعاملی قیمت</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">🤔</div>
+                    <div class="detail-text">تحلیل هوش مصنوعی خودکار</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">⚡</div>
+                    <div class="detail-text">سیگنال‌های معاملاتی</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">🧮</div>
+                    <div class="detail-text">محاسبه لیکوییدی فیوچرز</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">📈</div>
+                    <div class="detail-text">محاسبه حد سود/ضرر</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">⚠️</div>
+                    <div class="detail-text">سیستم هشدار ریسک</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">📰</div>
+                    <div class="detail-text">اخبار و تحلیل احساسات</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- بخش فراخوان به اقدام -->
+        <div class="footer-section animate-text delay-4">
+            <div class="cta-box">
+                <h2 class="cta-title">🚀 همین حالا شروع کنید!</h2>
+                <p class="cta-text">
+                    سیستم کاملاً رایگان و آموزشی
+                    <br>بدون نیاز به ثبت‌نام
+                    <br>همین حالا از لینک زیر استفاده کنید
+                </p>
+                
+                <div class="link-box">
+                    <div class="link-text">👇 لینک در بیو</div>
+                </div>
+            </div>
+            
+            <div class="creator-section">
+                <div class="creator">
+                    <div class="creator-avatar">ح</div>
+                    <div class="creator-info">
+                        <div class="creator-name">حسن خدابخشی</div>
+                        <div class="creator-title">تحلیلگر و توسعه‌دهنده</div>
+                    </div>
+                </div>
+                
+                <div class="ai-badge">
+                    <div class="ai-text">
+                        <div class="ai-name">DeepSeek AI</div>
+                        <div class="ai-title">هوش مصنوعی توسعه‌دهنده</div>
+                    </div>
+                    <div class="ai-icon">🤖</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ایجاد ذرات شناور
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // اندازه تصادفی
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // موقعیت تصادفی
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100 + 100}%`;
+                
+                // شفافیت تصادفی
+                particle.style.opacity = Math.random() * 0.3 + 0.1;
+                
+                // رنگ تصادفی
+                const colors = [
+                    'rgba(59, 130, 246, 0.2)',
+                    'rgba(139, 92, 246, 0.2)',
+                    'rgba(16, 185, 129, 0.2)',
+                    'rgba(245, 158, 11, 0.2)'
+                ];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                // سرعت تصادفی
+                const duration = Math.random() * 20 + 20;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // اعمال انیمیشن‌ها
+        function setupAnimations() {
+            const elements = document.querySelectorAll('.animate-text');
+            elements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                element.style.animationDelay = `${index * 0.2}s`;
+            });
+        }
+        
+        // راه‌اندازی
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            setupAnimations();
+            
+            // انیمیشن چرخش برای لوگو
+            const logo = document.querySelector('.logo-circle');
+            setInterval(() => {
+                logo.style.transform = logo.style.transform === 'rotate(360deg)' 
+                    ? 'rotate(0deg)' 
+                    : 'rotate(360deg)';
+                logo.style.transition = 'transform 1s ease';
+            }, 4000);
+            
+            // افکت hover برای کارت‌ها
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // انیمیشن برای CTA
+            const ctaBox = document.querySelector('.cta-box');
+            setInterval(() => {
+                ctaBox.style.transform = ctaBox.style.transform === 'scale(1.02)' 
+                    ? 'scale(1)' 
+                    : 'scale(1.02)';
+                ctaBox.style.transition = 'transform 0.5s ease';
+            }, 2000);
+        });
+        
+        // افکت چشمک زدن برای متن لینک
+        const linkText = document.querySelector('.link-text');
+        setInterval(() => {
+            linkText.style.opacity = linkText.style.opacity === '0.7' ? '1' : '0.7';
+            linkText.style.transition = 'opacity 0.5s ease';
+        }, 1000);
+    </script>
+</body>
+</html>
